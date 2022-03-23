@@ -1,0 +1,20 @@
+class Solution {
+    public int sumNumbers(TreeNode root) {
+        int ans = helper(root,0);
+        return ans;
+    }
+    public int helper(TreeNode root, int sum){
+        if(root == null)
+        {
+            return 0;
+            
+        }
+        sum = sum * 10 + root.val;
+        if(root.left == null && root.right == null)
+        {
+            return sum;
+        }
+        int finalSum = helper(root.left , sum ) + helper(root.right , sum);
+        return finalSum;
+    }
+}
